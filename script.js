@@ -51,6 +51,7 @@ function updateDom(providedData = dataArr){
 	})
 }
 
+//double the money using map array method
 function doublemoney(){
 		dataArr = dataArr.map((names)=>{
 			return { ...names, money: names.money * 2 }
@@ -62,6 +63,8 @@ function doublemoney(){
 
 };
 
+
+//show millionares by filter method
 function showMillionares(){
 	dataArr = dataArr.filter((item)=>{
 		// return {...item, money: item.money > 1000000};
@@ -70,7 +73,7 @@ function showMillionares(){
 	updateDom();
 }
 
-
+//sort method
 function sortByRiches(){
 	dataArr =dataArr.sort((a, b)=>{
 		return b.money - a.money;
@@ -78,6 +81,8 @@ function sortByRiches(){
 	updateDom();
 };
 
+
+//calculate total wealth
 function calculateWealth(){
 	const wealth = dataArr.reduce((acc, item)=>{
 		return (acc+=item.money);
@@ -91,12 +96,12 @@ function calculateWealth(){
 
 
 
-
+//putting figures in money format
 function moneyFormat(number){
 	return '$'+number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }
 
-
+//event
 addUsersbtn.addEventListener('click', getRandomUser);
 doubleMoneybtn.addEventListener('click', doublemoney);
 showMillionaresbtn.addEventListener('click', showMillionares);
